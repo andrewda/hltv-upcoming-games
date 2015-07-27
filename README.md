@@ -5,7 +5,7 @@ View the teams, maps, and predictions of an upcoming game on HLTV.
 `npm install hltv-upcoming-games`
 
 ## Usage
-```
+```js
 var hltv = require('hltv-upcoming-games');
 
 hltv.getUpcoming(function(gamesAttr) {
