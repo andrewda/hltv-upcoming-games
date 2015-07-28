@@ -1,5 +1,6 @@
 var request = require('request');
 var parseString = require('xml2js').parseString;
+var cheerio = require('cheerio');
 
 var upcomingGames = {
   _HLTV_URL: "http://www.hltv.org/hltv.rss.php?pri=15"
@@ -33,5 +34,30 @@ upcomingGames.getUpcoming = function(callback) {
     });
   });
 };
+
+upcomingGames.getOdds = function(link, callback) {
+  request(link, function (error, response, html) {
+    if (!error && response.statusCode == 200) {
+      var $ = cheerio.load(html);
+      
+      var percent; 
+      if ($('#voteteam1results').html() !== null && $('#voteteam2results').html() !== null) {
+        percent = {
+          'team1': $('#voteteam1results').html().replace('%', '').trim(),
+          'team2': $('#voteteam2results').html().replace('%', '').trim()
+        };
+        
+        callback(percent);
+      } else {
+        percent = {
+          'team1': null,
+          'team2': null
+        };
+        
+        callback(percent);
+      }
+    }
+  });
+}
 
 module.exports = upcomingGames;
