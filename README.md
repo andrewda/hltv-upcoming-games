@@ -2,9 +2,7 @@
 View the teams, maps, and predictions of an upcoming game on HLTV.
 
 ## Installation
-```
-npm install hltv-upcoming-games
-```
+`npm install hltv-upcoming-games`
 
 ## Usage
 ```js
@@ -20,3 +18,8 @@ hltv.getUpcoming(function(gamesAttr) {
 ## Methods
 ### getUpcoming(callback)
 Gets the upcoming games on HLTV.
+
+Callback contains the gameAttr object.
+
+### getOdds(link, callback)
+Callback contains an object with team1's odds and team2's odds.
