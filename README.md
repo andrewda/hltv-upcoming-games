@@ -17,9 +17,9 @@ hltv.getUpcoming(function(gamesAttr) {
 
 ## Methods
 ### getUpcoming(callback)
-Gets the upcoming games on HLTV.
+Gets the upcoming games listed HLTV.
 
 Callback contains the gameAttr object.
 
 ### getOdds(link, callback)
-Callback contains an object with team1's odds and team2's odds.
+Callback contains an object with team1's HLTV odds and team2's HLTV odds. (TODO: EGB.com odds)
