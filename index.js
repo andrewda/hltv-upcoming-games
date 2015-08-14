@@ -10,7 +10,9 @@ upcomingGames.getUpcoming = function(callback) {
   var gamesAttr = {};
   request({ uri: upcomingGames._HLTV_URL }, function(error, response, body) {
     parseString(body, function(err, result) {
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
       
       gamesAttr = {
         'upcomingTotal': result.rss.channel[0].item.length,
