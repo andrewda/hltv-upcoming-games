@@ -39,7 +39,7 @@ upcomingGames.getUpcoming = function(callback) {
 
 upcomingGames.getOdds = function(link, callback) {
   request(link, function (error, response, html) {
-    if (!error && response.statusCode == 200) {
+    if (!error && response.statusCode === 200) {
       var $ = cheerio.load(html);
       
       var percent; 
