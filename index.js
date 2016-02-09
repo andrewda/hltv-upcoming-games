@@ -1,6 +1,6 @@
-var request = require('request');
-var parseString = require('xml2js').parseString;
-var cheerio = require('cheerio');
+var request = require("request");
+var parseString = require("xml2js").parseString;
+var cheerio = require("cheerio");
 
 var upcomingGames = {
   _HLTV_URL: "http://www.hltv.org/hltv.rss.php?pri=15"
@@ -15,8 +15,8 @@ upcomingGames.getUpcoming = function(callback) {
       }
       
       gamesAttr = {
-        'upcomingTotal': result.rss.channel[0].item.length,
-        'games': {}
+        "upcomingTotal": result.rss.channel[0].item.length,
+        "games": {}
       };
       
       for (var i = 0; i < gamesAttr.upcomingTotal; i++) {
@@ -29,7 +29,7 @@ upcomingGames.getUpcoming = function(callback) {
           date  : result.rss.channel[0].item[i].pubDate[0]
         };
         
-        gamesAttr.games[matchObj.link.match(/\/match\/([0-9]+)/, '')[1]] = matchObj;
+        gamesAttr.games[matchObj.link.match(/\/match\/([0-9]+)/, "")[1]] = matchObj;
       }
       
       callback(gamesAttr);
@@ -43,23 +43,23 @@ upcomingGames.getOdds = function(link, callback) {
       var $ = cheerio.load(html);
       
       var percent; 
-      if ($('#voteteam1results').html() !== null && $('#voteteam2results').html() !== null) {
+      if ($("#voteteam1results").html() !== null && $("#voteteam2results").html() !== null) {
         percent = {
-          'team1': $('#voteteam1results').html().replace('%', '').trim(),
-          'team2': $('#voteteam2results').html().replace('%', '').trim()
+          "team1": $("#voteteam1results").html().replace("%", "").trim(),
+          "team2": $("#voteteam2results").html().replace("%", "").trim()
         };
         
         callback(percent);
       } else {
         percent = {
-          'team1': null,
-          'team2': null
+          "team1": null,
+          "team2": null
         };
         
         callback(percent);
       }
     }
   });
-}
+};
 
 module.exports = upcomingGames;
