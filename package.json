@@ -17,6 +17,11 @@
   ],
   "author": "andrewda",
   "license": "MIT",
+  "dependencies":{
+    "request": "~2.74.0",
+    "xml2js": "~0.4.17",
+    "cheerio": "~0.22.0"
+  },
   "bugs": {
     "url": "https://github.com/andrewda/hltv-upcoming-games/issues"
   },
