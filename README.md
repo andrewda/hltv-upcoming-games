@@ -1,5 +1,7 @@
 # hltv-upcoming-games
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/andrewda/hltv-upcoming-games.svg)](https://greenkeeper.io/)
+
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/610d0b74f0854e29ab8aeed770cd461d)](https://www.codacy.com/app/dassonville-andrew/hltv-upcoming-games)
 
 View the teams, maps, and predictions of an upcoming game on HLTV.
